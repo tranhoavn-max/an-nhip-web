@@ -1,0 +1,128 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { withBase } from '../../lib/site';
+
+const sources = [
+  {
+    label: 'NHS (Anh): Breathing exercises for stress',
+    href: 'https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/',
+  },
+  {
+    label: 'Harvard Health: Relaxation techniques: Breath control helps quell errant stress response',
+    href: 'https://www.health.harvard.edu/mind-and-mood/relaxation-techniques-breath-control-helps-quell-errant-stress-response',
+  },
+  {
+    label: 'WHO: Doing What Matters in Times of Stress (có bản dịch tiếng Việt)',
+    href: 'https://www.who.int/publications/i/item/9789240003927',
+  },
+];
+---
+
+<ArticleLayout
+  title="Bài tập thở khi hồi hộp: cách dịu lại trong một phút | An Nhịp"
+  description="Hướng dẫn hai bài tập thở giảm lo âu: thở bụng (hít 4 giây, thở ra 6 giây) và thở hộp. Từng bước cụ thể, lỗi thường gặp và khi nào cần thêm hỗ trợ."
+  heading="Bài tập thở khi hồi hộp: cách dịu lại trong một phút"
+  datePublished="2026-07-21"
+  sources={sources}
+>
+  <p>
+    Tim đập nhanh, lồng ngực thắt lại, tay hơi run. Nếu bạn đang ở trạng thái
+    đó ngay lúc này, hãy thử làm theo đoạn dưới đây trước khi đọc tiếp phần
+    giải thích.
+  </p>
+
+  <h2>Thử ngay: một phút thở chậm</h2>
+  <ol>
+    <li>Ngồi hoặc đứng ở tư thế thoải mái. Nếu được, thả lỏng vai.</li>
+    <li>Hít vào bằng mũi, chậm rãi, đếm nhẩm 1, 2, 3, 4.</li>
+    <li>Thở ra từ từ bằng miệng hoặc mũi, đếm nhẩm 1, 2, 3, 4, 5, 6.</li>
+    <li>Lặp lại khoảng 6 vòng, tức là chừng một phút.</li>
+  </ol>
+  <p>
+    Điểm quan trọng nhất: <strong>thở ra dài hơn hít vào</strong>. Bạn không
+    cần đếm chính xác tuyệt đối, chỉ cần giữ nhịp chậm và đều. Nếu thấy chóng
+    mặt, hãy dừng lại và thở bình thường.
+  </p>
+
+  <h2>Vì sao thở chậm giúp cơ thể dịu lại</h2>
+  <p>
+    Khi lo lắng, cơ thể kích hoạt phản ứng căng thẳng: tim đập nhanh hơn, hơi
+    thở gấp và nông hơn. Đây là phản ứng bình thường của cơ thể, không phải
+    dấu hiệu bạn "yếu". Thở chậm và sâu tác động theo chiều ngược lại: nó kích
+    hoạt hệ thần kinh đối giao cảm, hệ giúp cơ thể nghỉ ngơi, nhờ đó nhịp tim
+    và cảm giác căng dần hạ xuống. Các hướng dẫn tự chăm sóc của NHS và Harvard
+    Health đều xếp thở chậm vào nhóm kỹ thuật thư giãn nền tảng, dễ học nhất.
+  </p>
+  <p>
+    Nói cách khác, không có cách nào "hết lo lắng" ngay lập tức, và mục tiêu
+    cũng không phải là hết hẳn. Mục tiêu là hạ cường độ xuống đủ để bạn suy
+    nghĩ rõ ràng trở lại.
+  </p>
+
+  <h2>Thở bụng: bài tập nền tảng hằng ngày</h2>
+  <p>
+    Thở bụng (diaphragmatic breathing) là kiểu thở dùng cơ hoành, để bụng phình
+    lên khi hít vào thay vì nâng vai và ngực. Cách làm:
+  </p>
+  <ol>
+    <li>Đặt một tay lên bụng, một tay lên ngực.</li>
+    <li>Hít vào bằng mũi trong 4 giây, để tay trên bụng được đẩy lên, tay trên ngực gần như đứng yên.</li>
+    <li>Thở ra chậm trong 6 giây, để bụng xẹp xuống tự nhiên.</li>
+    <li>Không nín hơi giữa các nhịp. Tập 3 đến 5 phút.</li>
+  </ol>
+  <p>
+    Đây là bài tập phù hợp để luyện hằng ngày vào lúc bạn đang bình tĩnh, ví dụ
+    trước khi ngủ. Luyện lúc dễ thì khi khó mới dùng được: cơ thể quen với nhịp
+    thở này sẽ tự tìm về nó nhanh hơn khi hồi hộp.
+  </p>
+
+  <h2>Thở hộp: khi cần một cấu trúc để bám vào</h2>
+  <p>
+    Thở hộp (box breathing) chia hơi thở thành 4 cạnh đều nhau, mỗi cạnh 4
+    giây: hít vào 4 giây, giữ 4 giây, thở ra 4 giây, giữ 4 giây. Việc đếm liên
+    tục cho tâm trí một việc cụ thể để làm, nên kiểu thở này hợp với những lúc
+    suy nghĩ chạy quá nhanh và bạn cần một khuôn nhịp rõ ràng để bám vào.
+  </p>
+  <p>
+    Nếu 4 giây mỗi cạnh là quá dài với bạn, hãy bắt đầu với 3 giây. Nhịp đúng
+    là nhịp bạn giữ được thoải mái, không phải nhịp trong sách.
+  </p>
+
+  <h2>Lỗi thường gặp</h2>
+  <ul>
+    <li>
+      <strong>Cố hít thật sâu, thật nhanh.</strong> Hít quá gắng sức dễ gây
+      chóng mặt. Chậm quan trọng hơn sâu.
+    </li>
+    <li>
+      <strong>Thở bằng ngực và vai.</strong> Nếu vai nâng lên theo mỗi nhịp,
+      hãy quay lại bài thở bụng với tay đặt lên bụng.
+    </li>
+    <li>
+      <strong>Bỏ cuộc sau một vòng.</strong> Tác dụng thường đến sau khoảng
+      một phút trở lên, hãy cho cơ thể đủ thời gian.
+    </li>
+    <li>
+      <strong>Dùng bài thở để "chiến đấu" với lo âu.</strong> Càng ép cảm giác
+      phải biến mất, nó càng dai. Hãy coi bài thở là cách bạn ở cùng cơ thể
+      mình, không phải vũ khí.
+    </li>
+  </ul>
+
+  <h2>Khi nào bài thở là không đủ</h2>
+  <p>
+    Bài tập thở là công cụ hạ cường độ tại chỗ, không phải phương pháp điều
+    trị. Nếu lo âu xuất hiện thường xuyên, kéo dài nhiều tuần, ảnh hưởng tới
+    giấc ngủ, công việc hoặc các mối quan hệ, bạn xứng đáng được hỗ trợ chuyên
+    môn từ bác sĩ hoặc chuyên gia tâm lý. Việc tìm đến hỗ trợ sớm là một quyết
+    định chăm sóc bản thân, không phải thất bại.
+  </p>
+
+  <h2>Luyện tập cùng An Nhịp</h2>
+  <p>
+    Ứng dụng <a href={withBase('/')}>An Nhịp</a> có sẵn cả hai bài thở trên với
+    vòng tròn dẫn nhịp chuyển động chậm, thời lượng 1, 3 hoặc 5 phút. Ứng dụng
+    miễn phí, không cần tài khoản và mọi dữ liệu ở lại trên điện thoại của bạn.
+    <a href={withBase('/tai-app/')}>Tải bản Android tại đây</a>.
+  </p>
+</ArticleLayout>

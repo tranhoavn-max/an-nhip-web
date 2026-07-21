@@ -1,0 +1,419 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, MEDICAL_DISCLAIMER } from '../lib/site';
+
+const faq = [
+  {
+    q: 'An Nhịp có miễn phí không?',
+    a: 'Có. An Nhịp là dự án nghiên cứu trong khuôn khổ luận văn thạc sĩ, hoàn toàn miễn phí, không quảng cáo và không mua trong ứng dụng.',
+  },
+  {
+    q: 'Dữ liệu của tôi có được gửi đi đâu không?',
+    a: 'Không. Mọi dữ liệu được lưu cục bộ trên điện thoại của bạn. Ứng dụng không có máy chủ, không yêu cầu tài khoản và không tự động gửi bất kỳ dữ liệu nào ra ngoài. Nội dung nhật ký suy nghĩ không bao giờ rời khỏi thiết bị.',
+  },
+  {
+    q: 'An Nhịp có thay thế trị liệu tâm lý không?',
+    a: 'Không. An Nhịp là công cụ tự thực hành dựa trên liệu pháp nhận thức hành vi (CBT), không phải thiết bị y tế và không thay thế chẩn đoán hay điều trị của bác sĩ, chuyên gia tâm lý.',
+  },
+  {
+    q: 'Ứng dụng có trên iOS hoặc Google Play chưa?',
+    a: 'Hiện tại An Nhịp mới có bản Android cài trực tiếp qua file APK. Bản Google Play đang được chuẩn bị; bản iOS chưa có kế hoạch cụ thể.',
+  },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'An Nhịp',
+    operatingSystem: 'Android',
+    applicationCategory: 'HealthApplication',
+    inLanguage: 'vi',
+    description:
+      'Ứng dụng quản lý lo âu dựa trên liệu pháp nhận thức hành vi (CBT): bài tập thở, kỹ thuật tiếp đất 5-4-3-2-1 và nhật ký suy nghĩ. Dữ liệu lưu cục bộ trên thiết bị.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'VND',
+    },
+    url: new URL(withBase('/tai-app/'), Astro.site).href,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="An Nhịp | Ứng dụng quản lý lo âu theo CBT, dữ liệu ở lại trên máy bạn"
+  description="Bài tập thở, kỹ thuật tiếp đất 5-4-3-2-1 và nhật ký suy nghĩ CBT giúp bạn tự quản lý lo âu. Miễn phí, không tài khoản, dữ liệu không rời điện thoại."
+  jsonLd={jsonLd}
+>
+  <!-- ── Hero ─────────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy fade-in">
+        <h1>Tim đập nhanh, nghĩ mãi không dừng?</h1>
+        <p class="hero-sub muted">
+          Bài thở, tiếp đất và ghi lại suy nghĩ theo CBT. Hoạt động hoàn toàn
+          trên điện thoại của bạn, không cần mạng.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href={withBase('/tai-app/')}>Tải app</a>
+          <a class="btn btn-secondary" href={withBase('/demo/')}>Thử bản demo</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 320 320" width="320" height="320" fill="none">
+          <circle cx="160" cy="160" r="150" stroke="#5B9B8B" stroke-opacity="0.25" stroke-width="1.5"></circle>
+          <circle class="breath-ring" cx="160" cy="160" r="112" stroke="#5B9B8B" stroke-opacity="0.55" stroke-width="2"></circle>
+          <circle cx="160" cy="160" r="72" fill="#ECF2EF"></circle>
+          <circle cx="160" cy="160" r="34" fill="#5B9B8B" opacity="0.5"></circle>
+        </svg>
+        <p class="hero-visual-caption muted">Hít vào 4 giây, thở ra 6 giây</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Privacy pitch ────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <h2 class="privacy-statement">
+        Dữ liệu của bạn ở lại trên điện thoại của bạn.
+      </h2>
+      <p class="measure muted">
+        Không máy chủ, không tài khoản, không theo dõi. Những gì bạn viết ra
+        trong lúc lo lắng là chuyện riêng của bạn, và ứng dụng được thiết kế để
+        điều đó luôn đúng.
+      </p>
+      <div class="privacy-points">
+        <div>
+          <h3>Lưu cục bộ</h3>
+          <p class="muted">
+            Dữ liệu lưu trên thiết bị. Ứng dụng không tự động gửi dữ liệu đi
+            đâu; file nghiên cứu chỉ rời máy khi chính bạn chủ động xuất.
+          </p>
+        </div>
+        <div>
+          <h3>Không cần đăng nhập</h3>
+          <p class="muted">
+            Không thu thập tên, email, số điện thoại hay bất kỳ thông tin danh
+            tính nào của bạn.
+          </p>
+        </div>
+        <div>
+          <h3>Bạn toàn quyền xóa</h3>
+          <p class="muted">
+            Không lưu mặc định: mỗi phiên chỉ được giữ lại khi bạn bấm Lưu. Xóa
+            toàn bộ dữ liệu bất cứ lúc nào trong Cài đặt.
+          </p>
+        </div>
+      </div>
+      <p><a href={withBase('/quyen-rieng-tu/')}>Đọc toàn bộ chính sách quyền riêng tư</a></p>
+    </div>
+  </section>
+
+  <!-- ── Three exercises (bento) ──────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <h2>Ba bài tập, dùng được ngay khi cần</h2>
+      <p class="measure muted">
+        Mỗi bài tập được hướng dẫn từng bước trong ứng dụng. Mọi trường nhập
+        đều có thể bỏ trống, và bạn quyết định có lưu lại hay không.
+      </p>
+      <div class="bento">
+        <article class="card bento-breathing">
+          <svg class="bento-rings" viewBox="0 0 200 200" width="150" height="150" fill="none" aria-hidden="true">
+            <circle cx="100" cy="100" r="92" stroke="#3D7367" stroke-opacity="0.2" stroke-width="1.5"></circle>
+            <circle cx="100" cy="100" r="64" stroke="#3D7367" stroke-opacity="0.4" stroke-width="2"></circle>
+            <circle cx="100" cy="100" r="34" fill="#3D7367" opacity="0.25"></circle>
+          </svg>
+          <h3>Bài tập thở</h3>
+          <p class="muted">
+            Thở hộp (hít 4 giây, giữ 4 giây, thở ra 4 giây, giữ 4 giây) hoặc thở
+            bụng (hít 4 giây, thở ra 6 giây). Vòng tròn chuyển động chậm dẫn
+            nhịp cho bạn, kéo dài 1, 3 hoặc 5 phút.
+          </p>
+        </article>
+        <article class="card bento-grounding">
+          <p class="grounding-numbers" aria-hidden="true">5 4 3 2 1</p>
+          <h3>Tiếp đất (grounding)</h3>
+          <p class="muted">
+            Kỹ thuật 5-4-3-2-1: gọi tên 5 thứ bạn thấy, 4 thứ chạm được, 3 âm
+            thanh, 2 mùi hương, 1 vị. Kéo sự chú ý về hiện tại khi suy nghĩ
+            trôi quá xa.
+          </p>
+        </article>
+        <article class="card bento-thought">
+          <h3>Nhật ký suy nghĩ</h3>
+          <p class="muted">
+            Ghi lại tình huống và suy nghĩ theo 6 bước CBT: từ nhận diện cảm
+            xúc đến tìm góc nhìn cân bằng hơn. Nội dung bạn viết không bao giờ
+            rời khỏi điện thoại.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Live demo ────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container demo-grid">
+      <div class="demo-copy">
+        <h2>Xem trước từng màn hình</h2>
+        <p class="muted">
+          Đây là bản mẫu tương tác của chính ứng dụng, chạy ngay trong trình
+          duyệt. Bấm thử các bài tập để cảm nhận nhịp độ trước khi cài.
+        </p>
+        <p>
+          <a href={withBase('/demo/')}>Mở demo ở trang riêng, khung lớn hơn</a>
+        </p>
+      </div>
+      <div class="phone-frame">
+        <iframe
+          src={withBase('/demo/an-nhip-prototype.html')}
+          title="Bản demo tương tác của ứng dụng An Nhịp"
+          loading="lazy"
+          width="375"
+          height="720"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ──────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <h2>Câu hỏi thường gặp</h2>
+      <div class="faq measure">
+        {
+          faq.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p class="muted">{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container closing">
+      <h2>Lần tới khi hồi hộp, bạn có sẵn một chỗ để quay về.</h2>
+      <p>
+        <a class="btn btn-primary" href={withBase('/tai-app/')}>Tải app</a>
+      </p>
+      <p class="note note--medical measure closing-note">{MEDICAL_DISCLAIMER}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(3.5rem, 8vw, 6rem);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    max-width: 32rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 2rem;
+  }
+
+  .hero-visual {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .hero-visual-caption {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+
+  .privacy-statement {
+    max-width: 26ch;
+  }
+
+  .privacy-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    margin-block: 3rem 2rem;
+  }
+
+  .privacy-points h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4em;
+  }
+
+  .privacy-points p {
+    font-size: 0.97rem;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .bento-breathing {
+    grid-row: 1 / 3;
+    background: var(--sage-soft);
+    border-color: color-mix(in srgb, var(--sage) 22%, var(--line));
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+
+  .bento-rings {
+    margin-bottom: auto;
+    padding-bottom: 1.5rem;
+  }
+
+  .bento-grounding .grounding-numbers {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--sage-deco);
+    margin: 0 0 0.75rem;
+  }
+
+  .bento-thought {
+    background: #fdfcfa;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .phone-frame {
+    border: 1px solid var(--line);
+    border-radius: 36px;
+    padding: 12px;
+    background: var(--surface);
+    box-shadow: 0 2px 24px rgb(39 43 41 / 0.05);
+    justify-self: center;
+  }
+
+  .phone-frame iframe {
+    display: block;
+    border: 0;
+    border-radius: 26px;
+    background: #fff;
+  }
+
+  .faq {
+    margin-top: 1.5rem;
+  }
+
+  .faq details {
+    border-bottom: 1px solid var(--line);
+    padding-block: 1rem;
+  }
+
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq summary::after {
+    content: '+';
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--sage);
+    flex: none;
+  }
+
+  .faq details[open] summary::after {
+    content: '\2212';
+  }
+
+  .faq details p {
+    margin: 0.75rem 0 0.25rem;
+  }
+
+  .closing {
+    text-align: center;
+  }
+
+  .closing h2 {
+    max-width: 24ch;
+    margin-inline: auto;
+  }
+
+  .closing-note {
+    margin: 2.5rem auto 0;
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid,
+    .demo-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .hero-visual svg {
+      width: 200px;
+      height: 200px;
+    }
+
+    .privacy-points {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .bento {
+      grid-template-columns: 1fr;
+    }
+
+    .bento-breathing {
+      grid-row: auto;
+    }
+
+    .phone-frame {
+      justify-self: center;
+      max-width: 100%;
+    }
+
+    .phone-frame iframe {
+      width: min(375px, calc(100vw - 5rem));
+    }
+  }
+</style>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# The raw prototype file is embedded on /demo/ and should not rank on its own.
+Disallow: /an-nhip-web/demo/an-nhip-prototype.html
+
+Sitemap: https://tranhoavn-max.github.io/an-nhip-web/sitemap-index.xml

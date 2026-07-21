@@ -1,0 +1,281 @@
+/* ── An Nhịp design tokens ─────────────────────────────────────────────
+   Light theme, locked. Warm off-white canvas, green-tinted charcoal ink,
+   one accent: sage #3D7367 (matches the app's primary action color).
+   Radius system: 8px interactive elements, 12px cards. No other radii. */
+
+:root {
+  --bg: #faf9f6;
+  --surface: #ffffff;
+  --ink: #272b29;
+  --ink-2: #5f6b66;
+  --line: #e8e5de;
+  --sage: #3d7367;
+  --sage-dark: #2f5a50;
+  --sage-soft: #ecf2ef;
+  --sage-deco: #5b9b8b;
+  --amber-soft: #fbf3db;
+  --amber-ink: #7d5500;
+  --red-soft: #faedea;
+  --red-ink: #9f3d33;
+
+  --font-sans: 'Be Vietnam Pro', 'Segoe UI', system-ui, sans-serif;
+  --radius-ui: 8px;
+  --radius-card: 12px;
+  --container: 1080px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+iframe {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  margin: 0 0 0.6em;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3.25rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2.125rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--sage);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--sage-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--sage-soft);
+}
+
+/* ── Layout primitives ─────────────────────────────────────────────── */
+
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2rem);
+}
+
+.section {
+  padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.section + .section {
+  border-top: 1px solid var(--line);
+}
+
+.measure {
+  max-width: 42rem;
+}
+
+.muted {
+  color: var(--ink-2);
+}
+
+/* ── Buttons ───────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-ui);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--sage);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--sage-dark);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sage);
+  border-color: var(--sage);
+}
+
+.btn-secondary:hover {
+  background: var(--sage-soft);
+  color: var(--sage-dark);
+}
+
+/* ── Cards & notes ─────────────────────────────────────────────────── */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.note {
+  border-radius: var(--radius-card);
+  padding: 1.1rem 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.note--medical {
+  background: var(--amber-soft);
+  color: var(--amber-ink);
+}
+
+.note--crisis {
+  background: var(--red-soft);
+  color: var(--red-ink);
+}
+
+.note a {
+  color: inherit;
+  font-weight: 600;
+}
+
+/* ── Long-form article prose ───────────────────────────────────────── */
+
+.prose {
+  max-width: 42rem;
+}
+
+.prose h2 {
+  margin-top: 2.5em;
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4rem;
+  margin: 0 0 1.2em;
+}
+
+.prose li {
+  margin-bottom: 0.45em;
+}
+
+.prose li::marker {
+  color: var(--sage-deco);
+}
+
+.prose blockquote {
+  margin: 1.6em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+  border-left: 3px solid var(--sage-deco);
+  color: var(--ink-2);
+}
+
+/* ── Motion: one subtle entrance, off under reduced motion ─────────── */
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    animation: fade-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .breath-ring {
+    animation: breath 8s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  @keyframes breath {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    45%,
+    60% {
+      transform: scale(1.06);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

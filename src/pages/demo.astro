@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/site';
+---
+
+<BaseLayout
+  title="Demo tương tác ứng dụng An Nhịp trên trình duyệt | An Nhịp"
+  description="Dùng thử bản demo tương tác của ứng dụng quản lý lo âu An Nhịp ngay trên trình duyệt: bài tập thở, tiếp đất 5-4-3-2-1 và nhật ký suy nghĩ CBT."
+>
+  <section class="section demo-section">
+    <div class="container">
+      <h1>Dùng thử An Nhịp trên trình duyệt</h1>
+      <p class="measure muted">
+        Đây là bản mẫu thiết kế tương tác (prototype), không phải ứng dụng
+        thật: dữ liệu bạn nhập ở đây không được lưu. Bản demo hiển thị đẹp nhất
+        ở khung dọc như điện thoại.
+      </p>
+      <div class="phone-frame">
+        <iframe
+          src={withBase('/demo/an-nhip-prototype.html')}
+          title="Bản demo tương tác của ứng dụng An Nhịp"
+          width="390"
+          height="780"
+        ></iframe>
+      </div>
+      <p class="after-demo">
+        Thấy hợp với bạn? <a href={withBase('/tai-app/')}>Tải bản Android đầy đủ</a>,
+        nơi dữ liệu của bạn được lưu riêng tư trên máy.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .demo-section .phone-frame {
+    margin-top: 2.5rem;
+    border: 1px solid var(--line);
+    border-radius: 36px;
+    padding: 12px;
+    background: var(--surface);
+    box-shadow: 0 2px 24px rgb(39 43 41 / 0.05);
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .phone-frame iframe {
+    display: block;
+    border: 0;
+    border-radius: 26px;
+    background: #fff;
+    max-width: calc(100vw - 5rem);
+  }
+
+  .after-demo {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

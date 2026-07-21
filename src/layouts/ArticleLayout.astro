@@ -1,0 +1,107 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { withBase, CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
+
+interface Source {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  datePublished: string; // YYYY-MM-DD
+  sources: Source[];
+}
+
+const { title, description, heading, datePublished, sources } = Astro.props;
+
+const displayDate = datePublished.split('-').reverse().join('/');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: heading,
+    description,
+    inLanguage: 'vi',
+    datePublished,
+    author: {
+      '@type': 'Organization',
+      name: 'Nhóm phát triển An Nhịp',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'An Nhịp',
+    },
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: heading,
+    inLanguage: 'vi',
+    about: {
+      '@type': 'MedicalCondition',
+      name: 'Lo âu (anxiety)',
+    },
+    lastReviewed: datePublished,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} jsonLd={jsonLd} ogType="article">
+  <article class="section">
+    <div class="container prose">
+      <h1>{heading}</h1>
+      <p class="muted article-meta">
+        Nhóm phát triển An Nhịp · {displayDate}
+      </p>
+      <p class="note note--medical">
+        Bài viết chia sẻ kỹ thuật tự thực hành, không phải tư vấn y khoa.
+        {MEDICAL_DISCLAIMER}
+      </p>
+
+      <slot />
+
+      <h2>Nguồn tham khảo</h2>
+      <ul>
+        {
+          sources.map((s) => (
+            <li>
+              <a href={s.href} rel="noopener">
+                {s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="note note--crisis">{CRISIS_TEXT}</p>
+
+      <p class="article-back">
+        <a href={withBase('/blog/')}>Xem các bài viết khác</a>
+      </p>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-meta {
+    font-size: 0.92rem;
+    margin-top: -0.5rem;
+  }
+
+  .note--medical {
+    margin-block: 1.5rem 2.5rem;
+  }
+
+  .note--crisis {
+    margin-top: 2.5rem;
+  }
+
+  .article-back {
+    margin-top: 2.5rem;
+  }
+</style>

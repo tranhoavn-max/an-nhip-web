@@ -1,0 +1,79 @@
+---
+import { withBase, CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <p class="footer-brand">An Nhịp</p>
+        <p class="muted">
+          Ứng dụng quản lý lo âu dựa trên liệu pháp nhận thức hành vi (CBT),
+          phát triển trong khuôn khổ luận văn thạc sĩ. Miễn phí, không quảng cáo,
+          không tài khoản.
+        </p>
+        <p class="muted footer-disclaimer">{MEDICAL_DISCLAIMER}</p>
+      </div>
+      <nav class="footer-nav" aria-label="Liên kết chân trang">
+        <a href={withBase('/')}>Trang chủ</a>
+        <a href={withBase('/tai-app/')}>Tải app</a>
+        <a href={withBase('/blog/')}>Bài viết</a>
+        <a href={withBase('/demo/')}>Demo</a>
+        <a href={withBase('/quyen-rieng-tu/')}>Quyền riêng tư</a>
+      </nav>
+    </div>
+    <p class="note note--crisis footer-crisis">{CRISIS_TEXT}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding-block: 3.5rem;
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .footer-brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-disclaimer {
+    font-size: 0.88rem;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: start;
+  }
+
+  .footer-nav a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .footer-nav a:hover {
+    color: var(--sage);
+  }
+
+  .footer-crisis {
+    margin-top: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

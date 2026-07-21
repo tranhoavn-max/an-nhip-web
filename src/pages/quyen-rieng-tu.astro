@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Chính sách quyền riêng tư của An Nhịp',
+    inLanguage: 'vi',
+    lastReviewed: '2026-07-21',
+  },
+];
+---
+
+<BaseLayout
+  title="Chính sách quyền riêng tư | An Nhịp"
+  description="An Nhịp lưu mọi dữ liệu cục bộ trên thiết bị của bạn: không máy chủ, không tài khoản, không theo dõi. Chi tiết về dữ liệu được lưu, cách bảo vệ và cách xóa."
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <div class="container prose">
+      <h1>Chính sách quyền riêng tư</h1>
+      <p class="muted">
+        Áp dụng cho ứng dụng An Nhịp (m-Mental-Health) trên Android. Cập nhật
+        lần cuối: 21/07/2026. Nội dung này phản ánh đúng phần "Quyền riêng tư
+        của bạn" hiển thị trong ứng dụng.
+      </p>
+
+      <h2>Tóm tắt</h2>
+      <ul>
+        <li>
+          <strong>Dữ liệu ở lại trên thiết bị.</strong> Dữ liệu lưu cục bộ
+          (local-first). Ứng dụng không tự động gửi dữ liệu đi đâu; file nghiên
+          cứu chỉ rời thiết bị khi bạn chủ động xuất.
+        </li>
+        <li>
+          <strong>Không cần đăng nhập.</strong> Ứng dụng không thu thập tên,
+          email, số điện thoại hay danh tính của bạn.
+        </li>
+        <li>
+          <strong>Bạn kiểm soát dữ liệu của mình.</strong> Không lưu mặc định.
+          Bạn có thể xóa dữ liệu do ứng dụng quản lý bất cứ lúc nào.
+        </li>
+      </ul>
+
+      <h2>Dữ liệu nào được lưu trên thiết bị</h2>
+      <p>
+        Ứng dụng chỉ lưu một phiên bài tập khi bạn hoàn thành phiên đó và chủ
+        động bấm Lưu. Phiên bị bỏ dở hoặc bạn chọn không lưu sẽ không được ghi
+        lại. Một phiên đã lưu có thể gồm:
+      </p>
+      <ul>
+        <li>Loại bài tập (thở, tiếp đất, nhật ký suy nghĩ) và thời điểm thực hiện (chỉ ngày, không giờ).</li>
+        <li>Mức lo âu trước và sau bài tập, nếu bạn chọn nhập. Trường này luôn có thể bỏ trống.</li>
+        <li>Nhịp tim, nếu bạn chọn nhập thủ công. Trường này luôn có thể bỏ trống.</li>
+        <li>Nội dung nhật ký suy nghĩ bạn viết, nếu bạn chọn lưu phiên đó.</li>
+        <li>Cảm xúc bạn chọn trong phần ghi nhận cảm xúc hằng ngày.</li>
+        <li>Cài đặt ứng dụng (ví dụ khóa ứng dụng, các lựa chọn đồng ý).</li>
+      </ul>
+
+      <h2>Dữ liệu nào không được thu thập</h2>
+      <ul>
+        <li>Không tên, email, số điện thoại, danh bạ hay bất kỳ thông tin danh tính nào.</li>
+        <li>Không vị trí, máy ảnh, micro.</li>
+        <li>Không máy chủ: ứng dụng không có backend, không đồng bộ đám mây, không tài khoản.</li>
+        <li>Không SDK phân tích, không SDK quảng cáo, không theo dõi hành vi.</li>
+      </ul>
+
+      <h2>Các lớp bảo vệ bổ sung</h2>
+      <ul>
+        <li>
+          Dữ liệu nhạy cảm không được đưa vào bản sao lưu đám mây của thiết bị.
+        </li>
+        <li>
+          Để bảo vệ nội dung nhạy cảm, ứng dụng chặn chụp màn hình và ẩn nội
+          dung trong danh sách ứng dụng gần đây.
+        </li>
+        <li>
+          Mọi hành động nhạy cảm (lưu phiên, nhập nhịp tim, xuất file nghiên
+          cứu) đều phải qua một bước hỏi ý kiến riêng. Không có đường tắt nào
+          bỏ qua bước này.
+        </li>
+      </ul>
+
+      <h2>Xuất dữ liệu nghiên cứu</h2>
+      <p>
+        Nếu bạn tham gia nghiên cứu của luận văn, bạn có thể xuất một file CSV
+        tổng hợp để tự gửi cho nhóm nghiên cứu. Việc xuất chỉ diễn ra khi bạn
+        đồng ý và tự bấm xuất. File xuất dùng một mã người tham gia ngẫu nhiên,
+        không gắn với danh tính thật của bạn, và
+        <strong>không bao giờ chứa nội dung nhật ký suy nghĩ</strong>. Cấu trúc
+        dữ liệu của ứng dụng được thiết kế để truy vấn xuất file không thể chạm
+        tới phần văn bản thô bạn đã viết.
+      </p>
+
+      <h2>Xóa dữ liệu</h2>
+      <p>
+        Trong phần Cài đặt của ứng dụng, bạn có thể xóa toàn bộ dữ liệu do ứng
+        dụng quản lý bất cứ lúc nào. Lưu ý: file bạn đã xuất hoặc chia sẻ ra
+        ngoài ứng dụng sẽ không bị xóa theo. Gỡ cài đặt ứng dụng cũng xóa toàn
+        bộ dữ liệu cục bộ.
+      </p>
+
+      <h2>Lưu ý y tế và hỗ trợ khẩn cấp</h2>
+      <p>
+        Ứng dụng được phát triển phục vụ mục đích học thuật trong phạm vi luận
+        văn. {MEDICAL_DISCLAIMER}
+      </p>
+      <p class="note note--crisis">{CRISIS_TEXT}</p>
+
+      <h2>Thay đổi chính sách và liên hệ</h2>
+      <p>
+        Khi chính sách thay đổi (ví dụ khi phát hành lên Google Play), trang
+        này sẽ được cập nhật cùng ngày hiệu lực mới. Mọi câu hỏi về quyền riêng
+        tư, bạn có thể gửi qua trang mã nguồn của dự án tại
+        <a href="https://github.com/tranhoavn-max/an-nhip-web" rel="noopener">GitHub</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

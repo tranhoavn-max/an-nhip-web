@@ -1,0 +1,82 @@
+---
+import { withBase } from '../lib/site';
+---
+
+<header class="site-header">
+  <div class="container header-row">
+    <a class="brand" href={withBase('/')}>
+      <svg
+        class="brand-mark"
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle cx="13" cy="13" r="12" stroke="#3D7367" stroke-width="2"></circle>
+        <circle cx="13" cy="13" r="6.5" fill="#5B9B8B" opacity="0.45"></circle>
+      </svg>
+      <span>An Nhịp</span>
+    </a>
+    <nav aria-label="Điều hướng chính">
+      <a href={withBase('/blog/')}>Bài viết</a>
+      <a href={withBase('/demo/')}>Demo</a>
+      <a class="btn btn-primary btn-nav" href={withBase('/tai-app/')}>Tải app</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    flex: none;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.9rem, 2.5vw, 1.75rem);
+  }
+
+  nav > a:not(.btn) {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.98rem;
+  }
+
+  nav > a:not(.btn):hover {
+    color: var(--sage);
+  }
+
+  .btn-nav {
+    padding: 0.5rem 1.05rem;
+    font-size: 0.92rem;
+  }
+</style>

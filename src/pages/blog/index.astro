@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../lib/site';
+
+const posts = [
+  {
+    href: withBase('/blog/bai-tap-tho-khi-hoi-hop/'),
+    title: 'Bài tập thở khi hồi hộp: cách dịu lại trong một phút',
+    description:
+      'Hai bài thở giảm lo âu được hướng dẫn từng bước: thở bụng (hít 4 giây, thở ra 6 giây) và thở hộp. Kèm lỗi thường gặp và khi nào cần thêm hỗ trợ.',
+    date: '21/07/2026',
+  },
+  {
+    href: withBase('/blog/ky-thuat-tiep-dat-5-4-3-2-1/'),
+    title: 'Kỹ thuật tiếp đất 5-4-3-2-1: kéo tâm trí về hiện tại',
+    description:
+      'Dùng năm giác quan để neo sự chú ý vào hiện tại khi lo âu: 5 thứ bạn thấy, 4 thứ chạm được, 3 âm thanh, 2 mùi, 1 vị. Kèm biến thể cho từng hoàn cảnh.',
+    date: '21/07/2026',
+  },
+];
+---
+
+<BaseLayout
+  title="Bài viết về kỹ năng ứng phó lo âu | An Nhịp"
+  description="Hướng dẫn thực hành các kỹ thuật ứng phó lo âu dựa trên CBT: bài tập thở, kỹ thuật tiếp đất 5-4-3-2-1. Viết dễ hiểu, có nguồn tham khảo."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Bài viết</h1>
+      <p class="measure muted">
+        Hướng dẫn thực hành ngắn gọn về các kỹ thuật trong ứng dụng, kèm nguồn
+        tham khảo. Không phải tư vấn y khoa.
+      </p>
+      <div class="post-list">
+        {
+          posts.map((post) => (
+            <article class="post-item">
+              <p class="muted post-date">{post.date}</p>
+              <h2>
+                <a href={post.href}>{post.title}</a>
+              </h2>
+              <p class="muted">{post.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .post-list {
+    margin-top: 3rem;
+    max-width: 46rem;
+  }
+
+  .post-item {
+    padding-block: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .post-date {
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-item h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.4em;
+  }
+
+  .post-item h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .post-item h2 a:hover {
+    color: var(--sage);
+  }
+
+  .post-item p:last-child {
+    margin-bottom: 0;
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase, MEDICAL_DISCLAIMER } from '../lib/site';
+
+const apkHref = withBase('/tai-ve/an-nhip-arm64-v8a.apk');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'An Nhịp',
+    operatingSystem: 'Android 7.0 trở lên',
+    applicationCategory: 'HealthApplication',
+    inLanguage: 'vi',
+    softwareVersion: '0.1.0',
+    fileSize: '20MB',
+    downloadUrl: new URL(apkHref, Astro.site).href,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'VND' },
+  },
+];
+---
+
+<BaseLayout
+  title="Tải An Nhịp cho Android (APK miễn phí) | An Nhịp"
+  description="Tải và cài đặt ứng dụng quản lý lo âu An Nhịp cho Android qua file APK. Miễn phí, khoảng 20 MB, yêu cầu Android 7.0 trở lên. Hướng dẫn cài đặt từng bước."
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <div class="container">
+      <h1>Tải An Nhịp cho Android</h1>
+      <p class="measure muted">
+        Bản hiện tại được cài trực tiếp qua file APK. Bản phát hành trên Google
+        Play đang được chuẩn bị; khi có, trang này sẽ dẫn thẳng tới đó.
+      </p>
+      <p class="download-cta">
+        <a class="btn btn-primary" href={apkHref} download>Tải file APK</a>
+      </p>
+      <p class="muted download-meta">
+        Phiên bản 0.1.0, khoảng 20 MB. Miễn phí, không quảng cáo, không tài khoản.
+      </p>
+
+      <h2>Máy của bạn cần gì</h2>
+      <ul class="measure">
+        <li>Android 7.0 trở lên.</li>
+        <li>
+          Chip 64-bit (arm64). Hầu hết điện thoại Android bán từ khoảng năm
+          2017 trở lại đây đều đáp ứng.
+        </li>
+        <li>Khoảng 60 MB dung lượng trống sau khi cài.</li>
+      </ul>
+
+      <h2>Cài đặt từng bước</h2>
+      <ol class="measure install-steps">
+        <li>
+          <strong>Tải file APK</strong> bằng nút ở trên. Trình duyệt có thể hỏi
+          bạn xác nhận vì đây là file cài đặt; chọn Tải xuống (Download).
+        </li>
+        <li>
+          <strong>Mở file vừa tải</strong> từ thanh thông báo hoặc ứng dụng
+          Files, mục Downloads.
+        </li>
+        <li>
+          <strong>Cho phép cài đặt từ nguồn không xác định</strong> nếu Android
+          hỏi: chọn Cài đặt (Settings), bật "Cho phép từ nguồn này" cho trình
+          duyệt hoặc Files, rồi quay lại.
+        </li>
+        <li>
+          <strong>Bấm Cài đặt</strong> và chờ vài giây, sau đó mở ứng dụng
+          An Nhịp.
+        </li>
+      </ol>
+
+      <h2>Vì sao Android cảnh báo khi cài?</h2>
+      <p class="measure">
+        Bản này chưa phát hành qua Google Play nên Android (và Play Protect) sẽ
+        cảnh báo mặc định với mọi file APK cài ngoài, kể cả file an toàn. Đây là
+        hành vi bình thường của hệ điều hành. Ứng dụng không yêu cầu quyền truy
+        cập danh bạ, vị trí, máy ảnh hay micro, không kết nối máy chủ và không
+        chứa quảng cáo. Nếu bạn không thoải mái với việc cài APK, bạn có thể chờ
+        bản Google Play hoặc <a href={withBase('/demo/')}>dùng thử bản demo trên trình duyệt</a>.
+      </p>
+
+      <p class="note note--medical measure">{MEDICAL_DISCLAIMER}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .download-cta {
+    margin-top: 2rem;
+  }
+
+  .download-meta {
+    font-size: 0.92rem;
+    margin-bottom: 3.5rem;
+  }
+
+  h2 {
+    margin-top: 2.2em;
+  }
+
+  .install-steps li {
+    margin-bottom: 0.8em;
+  }
+
+  .note {
+    margin-top: 3rem;
+  }
+</style>
