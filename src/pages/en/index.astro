@@ -1,23 +1,23 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { withBase, MEDICAL_DISCLAIMER } from '../lib/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase, PATHS, MEDICAL_DISCLAIMER_EN } from '../../lib/site';
 
 const faq = [
   {
-    q: 'An Nhịp có miễn phí không?',
-    a: 'Có. An Nhịp là dự án nghiên cứu trong khuôn khổ luận văn thạc sĩ, hoàn toàn miễn phí, không quảng cáo và không mua trong ứng dụng.',
+    q: 'Is An Nhịp free?',
+    a: 'Yes. An Nhịp is a research project built as part of a master’s thesis. It is completely free, with no ads and no in-app purchases.',
   },
   {
-    q: 'Dữ liệu của tôi có được gửi đi đâu không?',
-    a: 'Không. Mọi dữ liệu được lưu cục bộ trên điện thoại của bạn. Ứng dụng không có máy chủ, không yêu cầu tài khoản và không tự động gửi bất kỳ dữ liệu nào ra ngoài. Nội dung nhật ký suy nghĩ không bao giờ rời khỏi thiết bị.',
+    q: 'Is my data sent anywhere?',
+    a: 'No. Everything is stored locally on your phone. The app has no server, asks for no account, and never sends any data out on its own. Your thought record text never leaves the device.',
   },
   {
-    q: 'An Nhịp có thay thế trị liệu tâm lý không?',
-    a: 'Không. An Nhịp là công cụ tự thực hành dựa trên liệu pháp nhận thức hành vi (CBT), không phải thiết bị y tế và không thay thế chẩn đoán hay điều trị của bác sĩ, chuyên gia tâm lý.',
+    q: 'Does An Nhịp replace therapy?',
+    a: 'No. An Nhịp is a self-practice tool based on cognitive behavioral therapy (CBT). It is not a medical device and does not replace diagnosis or treatment from a doctor or mental health professional.',
   },
   {
-    q: 'Ứng dụng có trên iOS hoặc Google Play chưa?',
-    a: 'Hiện tại An Nhịp mới có bản Android cài trực tiếp qua file APK. Bản Google Play đang được chuẩn bị; bản iOS chưa có kế hoạch cụ thể.',
+    q: 'Is the app on iOS or Google Play yet?',
+    a: 'Right now An Nhịp is only available for Android, installed directly from an APK file. A Google Play version is being prepared. There are no plans for an iOS version yet. The app interface is currently in Vietnamese.',
   },
 ];
 
@@ -28,19 +28,20 @@ const jsonLd = [
     name: 'An Nhịp',
     operatingSystem: 'Android',
     applicationCategory: 'HealthApplication',
-    inLanguage: 'vi',
+    inLanguage: 'en',
     description:
-      'Ứng dụng quản lý lo âu dựa trên liệu pháp nhận thức hành vi (CBT): bài tập thở, kỹ thuật tiếp đất 5-4-3-2-1 và nhật ký suy nghĩ. Dữ liệu lưu cục bộ trên thiết bị.',
+      'An anxiety self-management app based on cognitive behavioral therapy (CBT): breathing exercises, the 5-4-3-2-1 grounding technique and a thought record. Data is stored locally on your device.',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'VND',
     },
-    url: new URL(withBase('/tai-app/'), Astro.site).href,
+    url: new URL(withBase(PATHS.en.download), Astro.site).href,
   },
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    inLanguage: 'en',
     mainEntity: faq.map((item) => ({
       '@type': 'Question',
       name: item.q,
@@ -51,23 +52,24 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  altPath="/en/"
-  title="An Nhịp | Ứng dụng quản lý lo âu theo CBT, dữ liệu ở lại trên máy bạn"
-  description="Bài tập thở, kỹ thuật tiếp đất 5-4-3-2-1 và nhật ký suy nghĩ CBT giúp bạn tự quản lý lo âu. Miễn phí, không tài khoản, dữ liệu không rời điện thoại."
+  lang="en"
+  altPath="/"
+  title="An Nhịp | CBT anxiety self-help app that keeps your data on your phone"
+  description="Breathing exercises, 5-4-3-2-1 grounding and a CBT thought record to help you manage anxiety yourself. Free, no account, works offline with your data staying on your phone."
   jsonLd={jsonLd}
 >
   <!-- ── Hero ─────────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy fade-in">
-        <h1>Tim đập nhanh, nghĩ mãi không dừng?</h1>
+        <h1>Heart racing, thoughts that will not stop?</h1>
         <p class="hero-sub muted">
-          Bài thở, tiếp đất và ghi lại suy nghĩ theo CBT. Hoạt động hoàn toàn
-          trên điện thoại của bạn, không cần mạng.
+          Breathing, grounding and a CBT thought record. It all runs right on
+          your phone, with no connection needed.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href={withBase('/tai-app/')}>Tải app</a>
-          <a class="btn btn-secondary" href={withBase('/demo/')}>Thử bản demo</a>
+          <a class="btn btn-primary" href={withBase(PATHS.en.download)}>Get the app</a>
+          <a class="btn btn-secondary" href={withBase(PATHS.en.demo)}>Try the demo</a>
         </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
@@ -77,7 +79,7 @@ const jsonLd = [
           <circle cx="160" cy="160" r="72" fill="#ECF2EF"></circle>
           <circle cx="160" cy="160" r="34" fill="#5B9B8B" opacity="0.5"></circle>
         </svg>
-        <p class="hero-visual-caption muted">Hít vào 4 giây, thở ra 6 giây</p>
+        <p class="hero-visual-caption muted">Breathe in for 4 seconds, out for 6 seconds</p>
       </div>
     </div>
   </section>
@@ -86,47 +88,47 @@ const jsonLd = [
   <section class="section">
     <div class="container">
       <h2 class="privacy-statement">
-        Dữ liệu của bạn ở lại trên điện thoại của bạn.
+        Your data stays on your phone.
       </h2>
       <p class="measure muted">
-        Không máy chủ, không tài khoản, không theo dõi. Những gì bạn viết ra
-        trong lúc lo lắng là chuyện riêng của bạn, và ứng dụng được thiết kế để
-        điều đó luôn đúng.
+        No server, no account, no tracking. What you write down while you are
+        anxious is your own business, and the app is built so that stays true.
       </p>
       <div class="privacy-points">
         <div>
-          <h3>Lưu cục bộ</h3>
+          <h3>Stored locally</h3>
           <p class="muted">
-            Dữ liệu lưu trên thiết bị. Ứng dụng không tự động gửi dữ liệu đi
-            đâu; file nghiên cứu chỉ rời máy khi chính bạn chủ động xuất.
+            Your data is kept on the device. The app never sends data anywhere
+            on its own; a research file only leaves your phone when you
+            actively export it yourself.
           </p>
         </div>
         <div>
-          <h3>Không cần đăng nhập</h3>
+          <h3>No sign-in</h3>
           <p class="muted">
-            Không thu thập tên, email, số điện thoại hay bất kỳ thông tin danh
-            tính nào của bạn.
+            It collects no name, email, phone number or any other identifying
+            information about you.
           </p>
         </div>
         <div>
-          <h3>Bạn toàn quyền xóa</h3>
+          <h3>You can delete it all</h3>
           <p class="muted">
-            Không lưu mặc định: mỗi phiên chỉ được giữ lại khi bạn bấm Lưu. Xóa
-            toàn bộ dữ liệu bất cứ lúc nào trong Cài đặt.
+            Nothing is saved by default: each session is kept only when you tap
+            Save. Delete all your data at any time from Settings.
           </p>
         </div>
       </div>
-      <p><a href={withBase('/quyen-rieng-tu/')}>Đọc toàn bộ chính sách quyền riêng tư</a></p>
+      <p><a href={withBase(PATHS.en.privacy)}>Read the full privacy policy</a></p>
     </div>
   </section>
 
   <!-- ── Three exercises (bento) ──────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <h2>Ba bài tập, dùng được ngay khi cần</h2>
+      <h2>Three exercises, ready the moment you need them</h2>
       <p class="measure muted">
-        Mỗi bài tập được hướng dẫn từng bước trong ứng dụng. Mọi trường nhập
-        đều có thể bỏ trống, và bạn quyết định có lưu lại hay không.
+        Each exercise is guided step by step in the app. Every input field can
+        be left blank, and you decide whether to save anything.
       </p>
       <div class="bento">
         <article class="card bento-breathing">
@@ -135,28 +137,28 @@ const jsonLd = [
             <circle cx="100" cy="100" r="64" stroke="#3D7367" stroke-opacity="0.4" stroke-width="2"></circle>
             <circle cx="100" cy="100" r="34" fill="#3D7367" opacity="0.25"></circle>
           </svg>
-          <h3>Bài tập thở</h3>
+          <h3>Breathing exercises</h3>
           <p class="muted">
-            Thở hộp (hít 4 giây, giữ 4 giây, thở ra 4 giây, giữ 4 giây) hoặc thở
-            bụng (hít 4 giây, thở ra 6 giây). Vòng tròn chuyển động chậm dẫn
-            nhịp cho bạn, kéo dài 1, 3 hoặc 5 phút.
+            Box breathing (in 4 seconds, hold 4 seconds, out 4 seconds, hold 4
+            seconds) or belly breathing (in 4 seconds, out 6 seconds). A slowly
+            moving circle sets the pace for you, lasting 1, 3 or 5 minutes.
           </p>
         </article>
         <article class="card bento-grounding">
           <p class="grounding-numbers" aria-hidden="true">5 4 3 2 1</p>
-          <h3>Tiếp đất (grounding)</h3>
+          <h3>Grounding</h3>
           <p class="muted">
-            Kỹ thuật 5-4-3-2-1: gọi tên 5 thứ bạn thấy, 4 thứ chạm được, 3 âm
-            thanh, 2 mùi hương, 1 vị. Kéo sự chú ý về hiện tại khi suy nghĩ
-            trôi quá xa.
+            The 5-4-3-2-1 technique: name 5 things you can see, 4 you can touch,
+            3 sounds, 2 smells, 1 taste. It pulls your attention back to the
+            present when your thoughts drift too far.
           </p>
         </article>
         <article class="card bento-thought">
-          <h3>Nhật ký suy nghĩ</h3>
+          <h3>Thought record</h3>
           <p class="muted">
-            Ghi lại tình huống và suy nghĩ theo 6 bước CBT: từ nhận diện cảm
-            xúc đến tìm góc nhìn cân bằng hơn. Nội dung bạn viết không bao giờ
-            rời khỏi điện thoại.
+            Write down the situation and your thoughts across 6 CBT steps: from
+            naming the emotion to finding a more balanced view. What you write
+            never leaves your phone.
           </p>
         </article>
       </div>
@@ -167,19 +169,21 @@ const jsonLd = [
   <section class="section">
     <div class="container demo-grid">
       <div class="demo-copy">
-        <h2>Xem trước từng màn hình</h2>
+        <h2>Preview each screen</h2>
         <p class="muted">
-          Đây là bản mẫu tương tác của chính ứng dụng, chạy ngay trong trình
-          duyệt. Bấm thử các bài tập để cảm nhận nhịp độ trước khi cài.
+          This is an interactive prototype of the app itself, running right in
+          your browser. Tap through the exercises to get a feel for the pace
+          before you install. The demo and the app interface are currently in
+          Vietnamese.
         </p>
         <p>
-          <a href={withBase('/demo/')}>Mở demo ở trang riêng, khung lớn hơn</a>
+          <a href={withBase(PATHS.en.demo)}>Open the demo on its own page, in a larger frame</a>
         </p>
       </div>
       <div class="phone-frame">
         <iframe
           src={withBase('/demo/an-nhip-prototype.html')}
-          title="Bản demo tương tác của ứng dụng An Nhịp"
+          title="Interactive demo of the An Nhịp app"
           loading="lazy"
           width="375"
           height="720"
@@ -191,7 +195,7 @@ const jsonLd = [
   <!-- ── FAQ ──────────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <h2>Câu hỏi thường gặp</h2>
+      <h2>Frequently asked questions</h2>
       <div class="faq measure">
         {
           faq.map((item) => (
@@ -208,11 +212,15 @@ const jsonLd = [
   <!-- ── Final CTA ────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container closing">
-      <h2>Lần tới khi hồi hộp, bạn có sẵn một chỗ để quay về.</h2>
+      <h2>Next time your heart pounds, you have a place to come back to.</h2>
       <p>
-        <a class="btn btn-primary" href={withBase('/tai-app/')}>Tải app</a>
+        <a class="btn btn-primary" href={withBase(PATHS.en.download)}>Get the app</a>
       </p>
-      <p class="note note--medical measure closing-note">{MEDICAL_DISCLAIMER}</p>
+      <p class="note measure closing-note">
+        An Nhịp is a free, non-commercial master’s thesis project. The app
+        interface is currently in Vietnamese.
+      </p>
+      <p class="note note--medical measure closing-note">{MEDICAL_DISCLAIMER_EN}</p>
     </div>
   </section>
 </BaseLayout>

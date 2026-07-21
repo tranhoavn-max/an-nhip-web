@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { withBase } from '../../../lib/site';
+
+const posts = [
+  {
+    href: withBase('/en/blog/breathing-exercises-for-anxiety/'),
+    title: 'Breathing exercises for anxiety: how to settle down in a minute',
+    description:
+      'Two anxiety-easing breathing exercises, guided step by step: belly breathing (in 4 seconds, out 6 seconds) and box breathing. With common mistakes and when to reach for more support.',
+    date: 'July 21, 2026',
+  },
+  {
+    href: withBase('/en/blog/5-4-3-2-1-grounding-technique/'),
+    title: 'The 5-4-3-2-1 grounding technique: bring your mind back to now',
+    description:
+      'Use your five senses to anchor your attention in the present when anxiety hits: 5 things you see, 4 you can touch, 3 sounds, 2 smells, 1 taste. With variations for different situations.',
+    date: 'July 21, 2026',
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  altPath="/blog/"
+  title="Anxiety coping skills articles | An Nhịp"
+  description="Practical guides to CBT-based anxiety coping skills: breathing exercises and the 5-4-3-2-1 grounding technique. Written in plain language, with references."
+>
+  <section class="section">
+    <div class="container">
+      <h1>Articles</h1>
+      <p class="measure muted">
+        Short, practical guides to the techniques in the app, with references.
+        This is not medical advice.
+      </p>
+      <div class="post-list">
+        {
+          posts.map((post) => (
+            <article class="post-item">
+              <p class="muted post-date">{post.date}</p>
+              <h2>
+                <a href={post.href}>{post.title}</a>
+              </h2>
+              <p class="muted">{post.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .post-list {
+    margin-top: 3rem;
+    max-width: 46rem;
+  }
+
+  .post-item {
+    padding-block: 2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .post-date {
+    font-size: 0.88rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-item h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.4em;
+  }
+
+  .post-item h2 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .post-item h2 a:hover {
+    color: var(--sage);
+  }
+
+  .post-item p:last-child {
+    margin-bottom: 0;
+  }
+</style>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase, PATHS } from '../../lib/site';
+---
+
+<BaseLayout
+  lang="en"
+  altPath="/demo/"
+  title="Try the An Nhịp anxiety app demo in your browser | An Nhịp"
+  description="Try the interactive demo of the An Nhịp anxiety self-management app right in your browser: breathing exercises, 5-4-3-2-1 grounding and a CBT thought record."
+>
+  <section class="section demo-section">
+    <div class="container">
+      <h1>Try An Nhịp in your browser</h1>
+      <p class="measure muted">
+        This is an interactive design prototype, not the real app: anything you
+        type here is not saved. The demo looks best in a tall, phone-shaped
+        frame. Note that the demo and the app interface are currently in
+        Vietnamese.
+      </p>
+      <div class="phone-frame">
+        <iframe
+          src={withBase('/demo/an-nhip-prototype.html')}
+          title="Interactive demo of the An Nhịp app"
+          width="390"
+          height="780"
+        ></iframe>
+      </div>
+      <p class="after-demo">
+        Feels right for you? <a href={withBase(PATHS.en.download)}>Get the full Android version</a>,
+        where your data is kept privately on your device.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .demo-section .phone-frame {
+    margin-top: 2.5rem;
+    border: 1px solid var(--line);
+    border-radius: 36px;
+    padding: 12px;
+    background: var(--surface);
+    box-shadow: 0 2px 24px rgb(39 43 41 / 0.05);
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .phone-frame iframe {
+    display: block;
+    border: 0;
+    border-radius: 26px;
+    background: #fff;
+    max-width: calc(100vw - 5rem);
+  }
+
+  .after-demo {
+    text-align: center;
+    margin-top: 2rem;
+  }
+</style>

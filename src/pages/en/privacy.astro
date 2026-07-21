@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CRISIS_TEXT_EN, MEDICAL_DISCLAIMER_EN } from '../../lib/site';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'An Nhịp privacy policy',
+    inLanguage: 'en',
+    lastReviewed: '2026-07-21',
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  altPath="/quyen-rieng-tu/"
+  title="Privacy policy | An Nhịp"
+  description="An Nhịp keeps all your data locally on your device: no server, no account, no tracking. Details on what is stored, how it is protected, and how to delete it."
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <div class="container prose">
+      <h1>Privacy policy</h1>
+      <p class="muted">
+        Applies to the An Nhịp app (m-Mental-Health) on Android. Last updated:
+        21 July 2026. This content faithfully reflects the "Your privacy"
+        section shown inside the app.
+      </p>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>
+          <strong>Your data stays on your device.</strong> Data is stored
+          locally (local-first). The app does not send data anywhere on its own;
+          a research file leaves your device only when you choose to export it.
+        </li>
+        <li>
+          <strong>No sign-in needed.</strong> The app does not collect your name,
+          email, phone number or identity.
+        </li>
+        <li>
+          <strong>You are in control of your data.</strong> Nothing is saved by
+          default. You can delete the data the app manages at any time.
+        </li>
+      </ul>
+
+      <h2>What data is stored on your device</h2>
+      <p>
+        The app saves an exercise session only when you complete that session
+        and actively tap Save. A session you abandon, or choose not to save, is
+        never recorded. A saved session may include:
+      </p>
+      <ul>
+        <li>The exercise type (breathing, grounding, thought record) and when you did it (date only, no time of day).</li>
+        <li>Your anxiety level before and after the exercise, if you choose to enter it. This field can always be left blank.</li>
+        <li>Your heart rate, if you choose to enter it manually. This field can always be left blank.</li>
+        <li>The thought record text you write, if you choose to save that session.</li>
+        <li>The emotion you pick in the daily mood check-in.</li>
+        <li>App settings (for example the app lock and your consent choices).</li>
+      </ul>
+
+      <h2>What data is not collected</h2>
+      <ul>
+        <li>No name, email, phone number, contacts or any identifying information.</li>
+        <li>No location, camera, microphone.</li>
+        <li>No server: the app has no backend, no cloud sync, no account.</li>
+        <li>No analytics SDK, no ads SDK, no behavioral tracking.</li>
+      </ul>
+
+      <h2>Extra layers of protection</h2>
+      <ul>
+        <li>
+          Sensitive data is excluded from your device's cloud backups.
+        </li>
+        <li>
+          To protect sensitive content, the app blocks screenshots and hides
+          content in the recent-apps list.
+        </li>
+        <li>
+          Every sensitive action (saving a session, entering heart rate,
+          exporting a research file) goes through its own consent step. No path
+          skips this step.
+        </li>
+      </ul>
+
+      <h2>Research data export</h2>
+      <p>
+        If you take part in the thesis research, you can export a summary CSV
+        file to send to the research team yourself. The export only happens when
+        you consent and tap export yourself. The exported file uses a random
+        participant code, never linked to your real identity, and
+        <strong>never contains thought record text</strong>. The app's data
+        structure is designed so the export query physically cannot reach the
+        raw text you wrote.
+      </p>
+
+      <h2>Deleting data</h2>
+      <p>
+        In the app's Settings, you can delete all data the app manages at any
+        time. Note: files you have exported or shared outside the app are not
+        deleted along with it. Uninstalling the app also deletes all local data.
+      </p>
+
+      <h2>Medical note and emergency support</h2>
+      <p>
+        The app is developed for academic purposes within the scope of a thesis.
+        {MEDICAL_DISCLAIMER_EN}
+      </p>
+      <p class="note note--crisis">{CRISIS_TEXT_EN}</p>
+
+      <h2>Policy changes and contact</h2>
+      <p>
+        When the policy changes (for example when the app is released on Google
+        Play), this page will be updated with the new effective date. For any
+        privacy question, you can reach us through the project's source page on
+        <a href="https://github.com/tranhoavn-max/an-nhip-web" rel="noopener">GitHub</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

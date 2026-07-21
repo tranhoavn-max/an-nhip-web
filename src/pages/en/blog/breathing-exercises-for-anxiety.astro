@@ -1,0 +1,137 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { withBase } from '../../../lib/site';
+
+const sources = [
+  {
+    label: 'NHS: Breathing exercises for stress',
+    href: 'https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/breathing-exercises-for-stress/',
+  },
+  {
+    label: 'Harvard Health: Relaxation techniques: Breath control helps quell errant stress response',
+    href: 'https://www.health.harvard.edu/mind-and-mood/relaxation-techniques-breath-control-helps-quell-errant-stress-response',
+  },
+  {
+    label: 'WHO: Doing What Matters in Times of Stress',
+    href: 'https://www.who.int/publications/i/item/9789240003927',
+  },
+];
+---
+
+<ArticleLayout
+  lang="en"
+  altPath="/blog/bai-tap-tho-khi-hoi-hop/"
+  title="Breathing exercises for anxiety: how to settle in a minute | An Nhịp"
+  description="Two breathing exercises for anxiety: belly breathing (inhale 4 seconds, exhale 6 seconds) and box breathing. Clear steps, common mistakes, and when to get more support."
+  heading="Breathing exercises for anxiety: how to settle in a minute"
+  datePublished="2026-07-21"
+  sources={sources}
+>
+  <p>
+    Your heart is racing, your chest feels tight, your hands are a little shaky.
+    If that is where you are right now, try the steps below before you read the
+    explanation that follows.
+  </p>
+
+  <h2>Try this now: one minute of slow breathing</h2>
+  <ol>
+    <li>Sit or stand in a comfortable position. If you can, let your shoulders drop.</li>
+    <li>Breathe in through your nose, slowly, counting 1, 2, 3, 4.</li>
+    <li>Breathe out gently through your mouth or nose, counting 1, 2, 3, 4, 5, 6.</li>
+    <li>Repeat about 6 times, which is roughly one minute.</li>
+  </ol>
+  <p>
+    The most important part: <strong>make your out-breath longer than your
+    in-breath</strong>. You do not need to count perfectly. Just keep the rhythm
+    slow and even. If you feel dizzy, stop and breathe normally.
+  </p>
+
+  <h2>Why slow breathing helps your body settle</h2>
+  <p>
+    When you feel anxious, your body switches on its stress response: your heart
+    beats faster, and your breathing gets quicker and shallower. That is a normal
+    reaction, not a sign that you are "weak". Slow, deep breathing works in the
+    opposite direction. It activates the parasympathetic nervous system, the part
+    that helps your body rest, so your heart rate and that keyed-up feeling can
+    gradually ease. Self-care guides from the NHS and Harvard Health both list
+    slow breathing among the most basic and easiest to learn relaxation
+    techniques.
+  </p>
+  <p>
+    In other words, there is no way to instantly stop anxiety, and that is not
+    the goal. The goal is to lower the intensity enough that you can think
+    clearly again.
+  </p>
+
+  <h2>Belly breathing: your everyday foundation</h2>
+  <p>
+    Belly breathing (diaphragmatic breathing) uses the diaphragm, letting your
+    belly rise as you breathe in instead of lifting your shoulders and chest.
+    Here is how:
+  </p>
+  <ol>
+    <li>Put one hand on your belly and one hand on your chest.</li>
+    <li>Breathe in through your nose for 4 seconds, letting the hand on your belly be pushed up while the hand on your chest stays almost still.</li>
+    <li>Breathe out slowly for 6 seconds, letting your belly fall naturally.</li>
+    <li>Do not hold your breath between breaths. Practice for 3 to 5 minutes.</li>
+  </ol>
+  <p>
+    This is a good exercise to practice every day while you are calm, for example
+    before you fall asleep. Practicing when it is easy is what makes it usable
+    when it is hard: once your body knows this rhythm, it finds its way back to
+    it faster when you feel anxious.
+  </p>
+
+  <h2>Box breathing: when you need a structure to hold onto</h2>
+  <p>
+    Box breathing splits your breath into four equal sides of 4 seconds each:
+    breathe in for 4 seconds, hold for 4 seconds, breathe out for 4 seconds, hold
+    for 4 seconds. The steady counting gives your mind one concrete thing to do,
+    so this style suits moments when your thoughts are racing and you need a
+    clear rhythm to hold onto.
+  </p>
+  <p>
+    If 4 seconds per side is too long for you, start with 3 seconds. The right
+    pace is the one you can keep comfortably, not the one in a book.
+  </p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li>
+      <strong>Trying to breathe in very deeply, very fast.</strong> Straining to
+      breathe in can easily make you dizzy. Slow matters more than deep.
+    </li>
+    <li>
+      <strong>Breathing with your chest and shoulders.</strong> If your shoulders
+      rise with every breath, go back to belly breathing with a hand on your
+      belly.
+    </li>
+    <li>
+      <strong>Giving up after one round.</strong> The effect usually comes after
+      about a minute or more, so give your body enough time.
+    </li>
+    <li>
+      <strong>Using the exercise to "fight" your anxiety.</strong> The harder you
+      push the feeling to go away, the more it clings. Treat the exercise as a
+      way of staying with your own body, not as a weapon.
+    </li>
+  </ul>
+
+  <h2>When breathing is not enough</h2>
+  <p>
+    Breathing exercises are a tool for turning the intensity down on the spot,
+    not a treatment. If anxiety shows up often, lasts for weeks, or affects your
+    sleep, work, or relationships, you deserve professional support from a doctor
+    or a mental health professional. Reaching out early is an act of self-care,
+    not a failure.
+  </p>
+
+  <h2>Practice with An Nhịp</h2>
+  <p>
+    The <a href={withBase('/en/')}>An Nhịp</a> app includes both breathing
+    exercises above, with a slow-moving circle to pace you and durations of 1, 3,
+    or 5 minutes. The app is free, needs no account, and all your data stays on
+    your phone. The app interface is currently in Vietnamese.
+    <a href={withBase('/en/download/')}>Get the Android version here</a>.
+  </p>
+</ArticleLayout>

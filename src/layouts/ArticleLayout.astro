@@ -1,6 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { withBase, CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
+import { withBase, STRINGS, PATHS, type Lang } from '../lib/site';
 
 interface Source {
   label: string;
@@ -13,11 +13,51 @@ interface Props {
   heading: string;
   datePublished: string; // YYYY-MM-DD
   sources: Source[];
+  lang?: Lang;
+  /** In-site path of this article's counterpart in the other language. */
+  altPath?: string;
 }
 
-const { title, description, heading, datePublished, sources } = Astro.props;
+const {
+  title,
+  description,
+  heading,
+  datePublished,
+  sources,
+  lang = 'vi',
+  altPath,
+} = Astro.props;
 
-const displayDate = datePublished.split('-').reverse().join('/');
+const t = STRINGS[lang];
+
+const ui = {
+  vi: {
+    author: 'Nhóm phát triển An Nhịp',
+    authorLd: 'Nhóm phát triển An Nhịp',
+    noteIntro: 'Bài viết chia sẻ kỹ thuật tự thực hành, không phải tư vấn y khoa.',
+    sources: 'Nguồn tham khảo',
+    back: 'Xem các bài viết khác',
+    condition: 'Lo âu (anxiety)',
+  },
+  en: {
+    author: 'The An Nhịp team',
+    authorLd: 'The An Nhịp team',
+    noteIntro: 'This article shares self-help techniques and is not medical advice.',
+    sources: 'Sources',
+    back: 'Read other articles',
+    condition: 'Anxiety',
+  },
+}[lang];
+
+const displayDate =
+  lang === 'vi'
+    ? datePublished.split('-').reverse().join('/')
+    : new Date(`${datePublished}T00:00:00Z`).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+      });
 
 const jsonLd = [
   {
@@ -25,11 +65,11 @@ const jsonLd = [
     '@type': 'Article',
     headline: heading,
     description,
-    inLanguage: 'vi',
+    inLanguage: lang,
     datePublished,
     author: {
       '@type': 'Organization',
-      name: 'Nhóm phát triển An Nhịp',
+      name: ui.authorLd,
     },
     publisher: {
       '@type': 'Organization',
@@ -41,31 +81,38 @@ const jsonLd = [
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
     name: heading,
-    inLanguage: 'vi',
+    inLanguage: lang,
     about: {
       '@type': 'MedicalCondition',
-      name: 'Lo âu (anxiety)',
+      name: ui.condition,
     },
     lastReviewed: datePublished,
   },
 ];
 ---
 
-<BaseLayout title={title} description={description} jsonLd={jsonLd} ogType="article">
+<BaseLayout
+  title={title}
+  description={description}
+  jsonLd={jsonLd}
+  ogType="article"
+  lang={lang}
+  altPath={altPath}
+>
   <article class="section">
     <div class="container prose">
       <h1>{heading}</h1>
       <p class="muted article-meta">
-        Nhóm phát triển An Nhịp · {displayDate}
+        {ui.author} · {displayDate}
       </p>
       <p class="note note--medical">
-        Bài viết chia sẻ kỹ thuật tự thực hành, không phải tư vấn y khoa.
-        {MEDICAL_DISCLAIMER}
+        {ui.noteIntro}
+        {t.disclaimer}
       </p>
 
       <slot />
 
-      <h2>Nguồn tham khảo</h2>
+      <h2>{ui.sources}</h2>
       <ul>
         {
           sources.map((s) => (
@@ -78,10 +125,10 @@ const jsonLd = [
         }
       </ul>
 
-      <p class="note note--crisis">{CRISIS_TEXT}</p>
+      <p class="note note--crisis">{t.crisis}</p>
 
       <p class="article-back">
-        <a href={withBase('/blog/')}>Xem các bài viết khác</a>
+        <a href={withBase(PATHS[lang].blog)}>{ui.back}</a>
       </p>
     </div>
   </article>

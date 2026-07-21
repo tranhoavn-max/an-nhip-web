@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase, MEDICAL_DISCLAIMER_EN, PATHS } from '../../lib/site';
+
+const apkHref = withBase('/tai-ve/an-nhip-arm64-v8a.apk');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'MobileApplication',
+    name: 'An Nhịp',
+    operatingSystem: 'Android 7.0 or later',
+    applicationCategory: 'HealthApplication',
+    inLanguage: 'en',
+    softwareVersion: '0.1.0',
+    fileSize: '20MB',
+    downloadUrl: new URL(apkHref, Astro.site).href,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'VND' },
+  },
+];
+---
+
+<BaseLayout
+  lang="en"
+  altPath="/tai-app/"
+  title="Download An Nhịp for Android (free APK) | An Nhịp"
+  description="Download and install the An Nhịp anxiety self-management app for Android as an APK file. Free, about 20 MB, needs Android 7.0 or later. Step-by-step install guide."
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <div class="container">
+      <h1>Download An Nhịp for Android</h1>
+      <p class="measure muted">
+        The current release installs directly from an APK file. A Google Play
+        release is in the works; once it is ready, this page will point straight
+        to it.
+      </p>
+      <p class="download-cta">
+        <a class="btn btn-primary" href={apkHref} download>Download the APK</a>
+      </p>
+      <p class="muted download-meta">
+        Version 0.1.0, about 20 MB. Free, no ads, no account.
+      </p>
+
+      <h2>What your phone needs</h2>
+      <ul class="measure">
+        <li>Android 7.0 or later.</li>
+        <li>
+          A 64-bit (arm64) chip. Most Android phones sold from around 2017
+          onward meet this.
+        </li>
+        <li>About 60 MB of free space after installing.</li>
+      </ul>
+
+      <h2>Install step by step</h2>
+      <ol class="measure install-steps">
+        <li>
+          <strong>Download the APK</strong> using the button above. Your browser
+          may ask you to confirm because this is an install file; choose
+          Download.
+        </li>
+        <li>
+          <strong>Open the file you just downloaded</strong> from the
+          notification bar or the Files app, under Downloads.
+        </li>
+        <li>
+          <strong>Allow installing from unknown sources</strong> if Android asks:
+          choose Settings, turn on "Allow from this source" for your browser or
+          Files, then go back.
+        </li>
+        <li>
+          <strong>Tap Install</strong> and wait a few seconds, then open the
+          An Nhịp app.
+        </li>
+      </ol>
+
+      <h2>Why does Android warn you during install?</h2>
+      <p class="measure">
+        This release is not on Google Play yet, so Android (and Play Protect)
+        warns by default about any APK installed from outside the store, even a
+        safe one. This is normal operating-system behavior. The app does not ask
+        for access to your contacts, location, camera or microphone, does not
+        connect to a server, and contains no ads. If you are not comfortable
+        installing an APK, you can wait for the Google Play release or
+        <a href={withBase(PATHS.en.demo)}>try the browser demo</a>.
+      </p>
+      <p class="measure">
+        Note: the app interface is currently in Vietnamese only.
+      </p>
+
+      <p class="note note--medical measure">{MEDICAL_DISCLAIMER_EN}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .download-cta {
+    margin-top: 2rem;
+  }
+
+  .download-meta {
+    font-size: 0.92rem;
+    margin-bottom: 3.5rem;
+  }
+
+  h2 {
+    margin-top: 2.2em;
+  }
+
+  .install-steps li {
+    margin-bottom: 0.8em;
+  }
+
+  .note {
+    margin-top: 3rem;
+  }
+</style>

@@ -6,7 +6,7 @@ import '@fontsource/be-vietnam-pro/700.css';
 import '../styles/global.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { withBase, SITE_NAME } from '../lib/site';
+import { withBase, SITE_NAME, STRINGS, type Lang } from '../lib/site';
 
 interface Props {
   title: string;
@@ -14,15 +14,31 @@ interface Props {
   /** Extra JSON-LD blocks appended to the default WebSite block. */
   jsonLd?: object[];
   ogType?: 'website' | 'article';
+  lang?: Lang;
+  /** In-site path (without base) of this page's counterpart in the other language. */
+  altPath?: string;
 }
 
-const { title, description, jsonLd = [], ogType = 'website' } = Astro.props;
+const {
+  title,
+  description,
+  jsonLd = [],
+  ogType = 'website',
+  lang = 'vi',
+  altPath,
+} = Astro.props;
+
+const t = STRINGS[lang];
+const altLang: Lang = lang === 'vi' ? 'en' : 'vi';
 
 // Trailing slash keeps canonicals aligned with the sitemap's URL style.
 const pathname = Astro.url.pathname.endsWith('/')
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const canonical = new URL(pathname, Astro.site).href;
+const altUrl = altPath ? new URL(withBase(altPath), Astro.site).href : undefined;
+// Vietnamese is the primary audience, so x-default points at the vi version.
+const xDefault = lang === 'vi' ? canonical : altUrl;
 const ogImage = new URL(withBase('/og.png'), Astro.site).href;
 
 const websiteLd = {
@@ -30,18 +46,27 @@ const websiteLd = {
   '@type': 'WebSite',
   name: SITE_NAME,
   url: new URL(withBase('/'), Astro.site).href,
-  inLanguage: 'vi',
+  inLanguage: lang,
 };
 ---
 
 <!doctype html>
-<html lang="vi">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {
+      altUrl && (
+        <>
+          <link rel="alternate" hreflang={lang} href={canonical} />
+          <link rel="alternate" hreflang={altLang} href={altUrl} />
+          <link rel="alternate" hreflang="x-default" href={xDefault} />
+        </>
+      )
+    }
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 
@@ -51,7 +76,7 @@ const websiteLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale" content={lang === 'vi' ? 'vi_VN' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -64,12 +89,12 @@ const websiteLd = {
     }
   </head>
   <body>
-    <a class="skip-link" href="#noi-dung">Bỏ qua tới nội dung chính</a>
-    <SiteHeader />
+    <a class="skip-link" href="#noi-dung">{t.skipLink}</a>
+    <SiteHeader lang={lang} altPath={altPath} />
     <main id="noi-dung">
       <slot />
     </main>
-    <SiteFooter />
+    <SiteFooter lang={lang} />
   </body>
 </html>
 

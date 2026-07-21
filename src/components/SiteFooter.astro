@@ -1,5 +1,13 @@
 ---
-import { withBase, CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
+import { withBase, STRINGS, PATHS, type Lang } from '../lib/site';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'vi' } = Astro.props;
+const t = STRINGS[lang];
+const p = PATHS[lang];
 ---
 
 <footer class="site-footer">
@@ -7,22 +15,18 @@ import { withBase, CRISIS_TEXT, MEDICAL_DISCLAIMER } from '../lib/site';
     <div class="footer-grid">
       <div class="footer-about">
         <p class="footer-brand">An Nhịp</p>
-        <p class="muted">
-          Ứng dụng quản lý lo âu dựa trên liệu pháp nhận thức hành vi (CBT),
-          phát triển trong khuôn khổ luận văn thạc sĩ. Miễn phí, không quảng cáo,
-          không tài khoản.
-        </p>
-        <p class="muted footer-disclaimer">{MEDICAL_DISCLAIMER}</p>
+        <p class="muted">{t.footerAbout}</p>
+        <p class="muted footer-disclaimer">{t.disclaimer}</p>
       </div>
-      <nav class="footer-nav" aria-label="Liên kết chân trang">
-        <a href={withBase('/')}>Trang chủ</a>
-        <a href={withBase('/tai-app/')}>Tải app</a>
-        <a href={withBase('/blog/')}>Bài viết</a>
-        <a href={withBase('/demo/')}>Demo</a>
-        <a href={withBase('/quyen-rieng-tu/')}>Quyền riêng tư</a>
+      <nav class="footer-nav" aria-label={t.footerNav.label}>
+        <a href={withBase(p.home)}>{t.footerNav.home}</a>
+        <a href={withBase(p.download)}>{t.footerNav.download}</a>
+        <a href={withBase(p.blog)}>{t.footerNav.blog}</a>
+        <a href={withBase(p.demo)}>{t.footerNav.demo}</a>
+        <a href={withBase(p.privacy)}>{t.footerNav.privacy}</a>
       </nav>
     </div>
-    <p class="note note--crisis footer-crisis">{CRISIS_TEXT}</p>
+    <p class="note note--crisis footer-crisis">{t.crisis}</p>
   </div>
 </footer>
 
