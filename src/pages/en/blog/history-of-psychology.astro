@@ -1,0 +1,609 @@
+---
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { withBase } from '../../../lib/site';
+
+const sources = [
+  {
+    label:
+      'Stanford Encyclopedia of Philosophy: Philosophy of Mind in Classical Indian Buddhism',
+    href: 'https://plato.stanford.edu/entries/mind-indian-buddhism/',
+  },
+  {
+    label: 'Stanford Encyclopedia of Philosophy: Wilhelm Maximilian Wundt',
+    href: 'https://plato.stanford.edu/entries/wilhelm-wundt/',
+  },
+  {
+    label: 'Encyclopaedia Britannica: Julian Jaynes',
+    href: 'https://www.britannica.com/biography/Julian-Jaynes',
+  },
+  {
+    label: 'Encyclopaedia Britannica: Gustave Le Bon',
+    href: 'https://www.britannica.com/biography/Gustave-Le-Bon',
+  },
+  {
+    label: 'Stanford Encyclopedia of Philosophy: Sigmund Freud',
+    href: 'https://plato.stanford.edu/entries/freud/',
+  },
+  {
+    label: 'B. F. Skinner Foundation: Operant Conditioning',
+    href: 'https://www.bfskinner.org/operant-conditioning/',
+  },
+  {
+    label: 'Viktor Frankl Institute: Logotherapy',
+    href: 'https://www.viktorfrankl.org/logotherapy.html',
+  },
+  {
+    label: 'A critical overview of Maslow and the hierarchy of needs',
+    href: 'https://www.simplypsychology.org/maslow.html',
+  },
+  {
+    label: 'REBT Network: What is REBT?',
+    href: 'https://www.rebtnetwork.org/whatis.html',
+  },
+  {
+    label: 'Beck Institute: Dr. Aaron T. Beck',
+    href: 'https://beckinstitute.org/about/dr-aaron-t-beck/',
+  },
+  {
+    label: 'Nobel Prize: Daniel Kahneman, 2002',
+    href: 'https://www.nobelprize.org/prizes/economic-sciences/2002/kahneman/facts/',
+  },
+  {
+    label: 'Review: The default mode network and mindfulness',
+    href: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4529365/',
+  },
+];
+---
+
+<ArticleLayout
+  lang="en"
+  altPath="/blog/lich-su-tam-ly-hoc/"
+  title="A history of psychology through its questions about the mind | An Nhịp"
+  description="A timeline of psychological thought: from Yogācāra and the 1879 Leipzig laboratory through psychoanalysis and behaviourism to CBT and cognitive science, marking clearly what is historical influence and what remains contested."
+  heading="A history of psychology through its questions about the mind"
+  datePublished="2026-07-22"
+  sources={sources}
+>
+  <p>
+    Psychology did not develop in a straight line. The schools below are placed
+    side by side to reveal the enduring questions about consciousness, selfhood,
+    behaviour, meaning and change. They are not "facts" verified to the same
+    degree, and this page says so at every entry.
+  </p>
+
+  <h2>How to read this page</h2>
+  <p>
+    The Yogācāra tradition is Buddhist philosophy and psychology, not a direct
+    precursor of experimental psychology. Psychoanalysis, existential and
+    humanistic schools carry enormous cultural and clinical influence, yet many
+    of their propositions cannot be treated as current scientific evidence.
+  </p>
+  <p>
+    Every figure comes with a caveat note in the margin voice, setting out what
+    belongs to historical influence and what has not been confirmed. Hypotheses
+    that remain genuinely contested are flagged separately.
+  </p>
+
+  <div class="era">
+    <p class="era-date">c. 4th to 5th century CE</p>
+    <h2>Classical Buddhist psychology</h2>
+    <p class="era-intro">
+      Rather than "ancient psychology" in general, this marker refers to the
+      consolidation of the Yogācāra tradition in India, a philosophically deep
+      system for analysing experience and cognition.
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">V</div>
+        <div>
+          <h3>Asaṅga and Vasubandhu</h3>
+          <p class="figure-dates">
+            Yogācāra · India, c. 4th to 5th century CE
+          </p>
+          <p>
+            Yogācāra develops a model of <strong>eight consciousnesses</strong>,
+            in which <em>ālaya-vijñāna</em> is often rendered "storehouse
+            consciousness" or "foundational consciousness", while
+            <em>manas</em> is tied to self-grasping. The system describes how
+            experience, habitual tendencies and cognition together construct the
+            world as it is lived.
+          </p>
+          <p class="caveat">
+            Do not equate ālaya-vijñāna with the Freudian unconscious, or with a
+            "hard drive" storing memories in a neuroscientific sense. These
+            belong to different metaphysical and soteriological frameworks.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="era">
+    <p class="era-date">1879 · Leipzig</p>
+    <h2>Psychology separates from philosophy</h2>
+    <p class="era-intro">
+      This is the marker usually taken as the beginning of psychology as an
+      independent experimental science: studying the mind through controlled
+      measurement rather than philosophical argument alone.
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">W</div>
+        <div>
+          <h3>Wilhelm Wundt</h3>
+          <p class="figure-dates">
+            Experimental psychology · 1832-1920, Leipzig laboratory 1879
+          </p>
+          <p>
+            Wundt founded the first laboratory devoted specifically to
+            psychological research at the University of Leipzig, trained a
+            generation of researchers, and established psychology as a
+            discipline with methods of its own. He used
+            <strong>controlled introspection</strong> under experimental
+            conditions to examine immediate conscious experience, such as
+            sensation and reaction time.
+          </p>
+          <p class="caveat">
+            The label "father of psychology" is a simplification. Wundt himself
+            held that higher mental processes such as language, myth and custom
+            could not be studied experimentally, and spent years writing
+            <em>Völkerpsychologie</em> to approach them by other methods.
+            Introspection was later heavily criticised by behaviourism and
+            largely abandoned in experimental psychology.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="era">
+    <p class="era-date">Late 19th century</p>
+    <h2>Crowds, consciousness and evolutionary stories</h2>
+    <p class="era-intro">
+      This period contains both influential social research and bold
+      conjectures about the origins of consciousness. Their value lies in
+      opening questions, not in having been confirmed as a history of the brain.
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">J</div>
+        <div>
+          <p class="figure-flag">Contested hypothesis</p>
+          <h3>Julian Jaynes</h3>
+          <p class="figure-dates">
+            1920-1997 · <em>The Origin of Consciousness</em> (1976)
+          </p>
+          <p>
+            The <strong>bicameral mind</strong> theory proposes that
+            introspection may have developed relatively late, and that ancient
+            people experienced "voices" as commands coming from outside.
+          </p>
+          <p class="caveat">
+            This is a fascinating interdisciplinary hypothesis, but it is not
+            accepted as consensus in neuroscience, archaeology or the psychology
+            of consciousness.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">L</div>
+        <div>
+          <h3>Gustave Le Bon</h3>
+          <p class="figure-dates">
+            Early social psychology · 1841-1931, <em>The Crowd</em> (1895)
+          </p>
+          <p>
+            Le Bon popularised an influential theory of crowds: anonymity,
+            emotional contagion and suggestibility can alter individual
+            behaviour.
+          </p>
+          <p class="caveat">
+            The claim that crowds are "inevitably stupid and violent" reflects
+            Le Bon's own period prejudices, not the conclusions of contemporary
+            crowd psychology. Modern research emphasises social identity, norms
+            and context.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="era">
+    <p class="era-date">1900 to 1950</p>
+    <h2>Psychoanalysis: conflict, purpose and symbol</h2>
+    <p class="era-intro">
+      These three did not belong to one school. They split over a deeper
+      argument: is a person shaped by drives, by social purpose, or by symbols
+      and processes of maturation?
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">F</div>
+        <div>
+          <h3>Sigmund Freud</h3>
+          <p class="figure-dates">Psychoanalysis · 1856-1939</p>
+          <p>
+            The structural model of <strong>Id, Ego and Superego</strong>
+            describes conflict between drive, adjustment to reality and the
+            internalising of norms. Freud also emphasised the role of early
+            experience and unconscious processes.
+          </p>
+          <p class="caveat">
+            The "iceberg" is a popular illustration, not the whole theory.
+            Thanatos appears later (1920), while the Id, Ego and Superego model
+            was systematised in 1923. Many Freudian propositions are not
+            supported empirically by modern standards.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">A</div>
+        <div>
+          <h3>Alfred Adler</h3>
+          <p class="figure-dates">Individual psychology · 1870-1937</p>
+          <p>
+            Adler emphasised purposiveness, lifestyle, feelings of inferiority
+            and the striving for growth. He held that people are interpreting,
+            goal-directed agents rather than merely pushed along by their past.
+          </p>
+          <p class="caveat">
+            Social feeling (<em>Gemeinschaftsgefühl</em>) is a central ethical
+            and developmental criterion in Adler's system, not a standardised
+            clinical measure.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">J</div>
+        <div>
+          <h3>Carl Jung</h3>
+          <p class="figure-dates">Analytical psychology · 1875-1961</p>
+          <p>
+            Jung introduced <strong>persona</strong>, <strong>shadow</strong>,
+            the archetypes and <strong>individuation</strong>, a process
+            oriented toward integrating psychological life. These ideas remain
+            influential in depth therapy, culture and art criticism.
+          </p>
+          <p class="caveat">
+            The "collective unconscious" and the archetypes do not have the
+            status of demonstrated neural structures. Read them as a framework
+            for interpreting symbols, not as a biological map of the brain.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="era">
+    <p class="era-date">1940 to 1970</p>
+    <h2>Behaviour, meaning, growth and the relational self</h2>
+    <p class="era-intro">
+      From laws of learning to the question of what makes a life worth living,
+      these directions shifted the focus from explaining pathology toward
+      observing behaviour, choice, meaning and developmental needs.
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">S</div>
+        <div>
+          <h3>B. F. Skinner</h3>
+          <p class="figure-dates">Behaviourism · 1904-1990</p>
+          <p>
+            Skinner developed operant conditioning: the consequences of
+            behaviour, such as reinforcement and extinction, change the
+            probability of that behaviour in future. This work underpins applied
+            behaviour analysis.
+          </p>
+          <p class="caveat">
+            He criticised metaphysical conceptions of free will, but research on
+            conditioning does not "prove" that human beings are machines without
+            choice.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">F</div>
+        <div>
+          <h3>Viktor Frankl</h3>
+          <p class="figure-dates">Existential and logotherapy · 1905-1997</p>
+          <p>
+            After surviving imprisonment in Nazi concentration camps, Frankl
+            developed <strong>logotherapy</strong>: a person can find or create
+            meaning even within adversity, and retains a margin of freedom in
+            their attitude.
+          </p>
+          <p class="caveat">
+            Meaning is the philosophical and therapeutic pillar of Frankl's
+            work. It should not be used to imply that people who are suffering
+            are at fault for "not having found meaning".
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">M</div>
+        <div>
+          <h3>Abraham Maslow</h3>
+          <p class="figure-dates">Humanistic psychology · 1908-1970</p>
+          <p>
+            Maslow studied motivation, needs and
+            <strong>self-actualisation</strong>, helping bring positive
+            qualities and human potential into psychology.
+          </p>
+          <p class="caveat">
+            The "pyramid of needs" is a later popularisation, not a diagram
+            Maslow drew. The rigidity of the hierarchy and its claimed
+            universality face substantial cross-cultural criticism.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">K</div>
+        <div>
+          <h3>Heinz Kohut and Otto Kernberg</h3>
+          <p class="figure-dates">
+            Self psychology, object relations · Kohut 1913-1981, Kernberg born
+            1928
+          </p>
+          <p>
+            Kohut described "selfobject" needs and the development of the self.
+            Kernberg studied borderline personality organisation, object
+            relations and narcissistic pathology. The two proposed different
+            models of pathological narcissism.
+          </p>
+          <p class="caveat">
+            These are psychodynamic theories, not the only explanation nor a
+            verdict on anyone with narcissistic traits. Diagnosing narcissistic
+            personality disorder requires careful clinical assessment, not
+            inference from isolated behaviour.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="era">
+    <p class="era-date">1955 to the present</p>
+    <h2>Belief, intuition, the brain and the plasticity of change</h2>
+    <p class="era-intro">
+      Contemporary psychology is increasingly interdisciplinary. The better
+      models tend to link cognition, learning, the body, relationships and
+      context, rather than reducing everything to one "node" in the brain or a
+      single law.
+    </p>
+    <div class="figures">
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">E</div>
+        <div>
+          <h3>Albert Ellis</h3>
+          <p class="figure-dates">REBT, forerunner of CBT · 1913-2007</p>
+          <p>
+            Ellis's rational emotive behaviour therapy (REBT), with its
+            <strong>A, B, C</strong> framework, stresses that interpretation and
+            belief contribute to emotional and behavioural consequences, not the
+            event alone.
+          </p>
+          <p class="caveat">
+            The A, B, C framework does not mean emotions are always a "thinking
+            error". Biology, society, trauma and real circumstances all matter.
+            Modern CBT also has other branches, with Aaron Beck as another
+            founding figure.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">B</div>
+        <div>
+          <h3>Aaron T. Beck</h3>
+          <p class="figure-dates">
+            Cognitive therapy, foundation of CBT · 1921-2021
+          </p>
+          <p>
+            Beck trained as a psychoanalyst, but his empirical research on
+            depression did not match that theory's predictions. From there he
+            built the <strong>cognitive model</strong>: automatic thoughts,
+            distorted thinking patterns and core beliefs help maintain distress.
+            He developed the <strong>thought record</strong>, the tool the
+            thought journal in <a href={withBase('/en/')}>An Nhịp</a> descends
+            from, along with measures such as the BDI and BAI.
+          </p>
+          <p class="caveat">
+            The cognitive model does not imply that emotions are merely
+            "thinking errors". Beck himself stressed the role of biology, life
+            circumstances and trauma. CBT has a strong evidence base for anxiety
+            and depression, but it does not work for everyone and does not
+            replace professional assessment and treatment where those are
+            needed.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">K</div>
+        <div>
+          <h3>Daniel Kahneman</h3>
+          <p class="figure-dates">Judgment and decision making · 1934-2024</p>
+          <p>
+            With Amos Tversky, Kahneman clarified the heuristics and biases at
+            work in judgment. The vocabulary of <strong>System 1</strong>, fast
+            and automatic, and <strong>System 2</strong>, slow and effortful, is
+            a highly useful descriptive tool.
+          </p>
+          <p class="caveat">
+            The two "systems" are not two separate brain regions, and the story
+            that "reason is merely the secretary of emotion" is a metaphor
+            stretched well beyond the actual research.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">S</div>
+        <div>
+          <p class="figure-flag">Contested</p>
+          <h3>Steven Pinker and Robert Sapolsky</h3>
+          <p class="figure-dates">
+            Evolution, neurobiology · Pinker born 1954, Sapolsky born 1957
+          </p>
+          <p>
+            Both helped popularise a way of seeing behaviour across layers of
+            time: developmental, endocrine, neural, social and evolutionary.
+            Sapolsky argues for a strong determinist position, while Pinker is
+            prominent in evolutionary psychology, language and cognitive
+            science.
+          </p>
+          <p class="caveat">
+            Do not collapse these two authors into a single stance that "rejects
+            free will". The free will question remains a philosophical and
+            scientific debate. A biological explanation does not automatically
+            erase responsibility, the capacity for change, or the influence of
+            environment.
+          </p>
+        </div>
+      </article>
+      <article class="figure">
+        <div class="figure-mark" aria-hidden="true">B</div>
+        <div>
+          <h3>Judson Brewer</h3>
+          <p class="figure-dates">
+            Mindfulness and neuroscience · physician and mindfulness researcher
+          </p>
+          <p>
+            Brewer studies habit, addiction, mindfulness and brain networks,
+            including the Default Mode Network (DMN). His work has helped bring
+            the experience of mindfulness into dialogue with neuroscience.
+          </p>
+          <p class="caveat">
+            There is no conclusion that "non-self" is a simple physical
+            disconnection of the DMN. Neuroimaging results are correlational and
+            method-dependent. Meditative experience cannot be reduced to a
+            single brain network.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <h2>From a history of ideas to everyday practice</h2>
+  <p>
+    What is worth keeping from this history is not a winning theory but a habit:
+    telling apart what you believe from what has actually been tested. That is
+    exactly what a Beck-style thought record asks you to do with yourself, at
+    the scale of one difficult afternoon.
+  </p>
+  <p>
+    If you would rather start with concrete techniques than theory, these two
+    short guides are immediately practical:
+    <a href={withBase('/en/blog/breathing-exercises-for-anxiety/')}>breathing
+    exercises for anxiety</a> and the
+    <a href={withBase('/en/blog/5-4-3-2-1-grounding-technique/')}>5-4-3-2-1
+    grounding technique</a>. Both are in the An Nhịp app, along with a CBT
+    thought journal. Free, no account, and your data stays on your phone.
+    <a href={withBase('/en/download/')}>Get the Android build here</a>.
+  </p>
+</ArticleLayout>
+
+<style>
+  /* History article, scoped. Extends the An Nhịp token system:
+     no new tokens, no new radii, no motion. */
+
+  .era {
+    margin-block: clamp(3rem, 6vw, 4.5rem) 0;
+  }
+
+  .era > h2 {
+    margin-top: 0.2rem;
+  }
+
+  /* Chronology is content here, not a decorative eyebrow. */
+  .era-date {
+    color: var(--sage);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .era-intro {
+    color: var(--ink-2);
+  }
+
+  .figures {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  /* Same material as .card in global.css */
+  .figure {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+  }
+
+  /* Initial letter stands in for a portrait: licensing-safe and works offline */
+  .figure-mark {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: var(--radius-ui);
+    background: var(--sage-soft);
+    color: var(--sage-dark);
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .figure h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .figure-dates {
+    color: var(--ink-2);
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  /* Only for genuinely contested claims, never as decoration */
+  .figure-flag {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: var(--radius-ui);
+    background: var(--sage-soft);
+    color: var(--sage-dark);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Mirrors .prose blockquote so caveats read as a known voice.
+     Amber stays reserved for the medical disclaimer. */
+  .caveat {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--sage-deco);
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+
+  .figure p:last-child {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 640px) {
+    .figure {
+      grid-template-columns: 2.5rem 1fr;
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+
+    .figure-mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.1rem;
+    }
+  }
+</style>
